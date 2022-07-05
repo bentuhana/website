@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite';
-import * as enviroments from './env';
+import env from './env';
 
 export default defineConfig({
   server: {
     host: '0.0.0.0',
   },
   define: {
-    ...enviroments,
+    ...env,
   },
 });
