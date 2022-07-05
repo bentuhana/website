@@ -1,1 +1,76 @@
 @import 'font.css';
+
+:root {
+  // Default primary color
+  --primary: #5865f2; // Discord's blurple
+  body[discord-status='online'] {
+    --primary: #3ba55c;
+  }
+  body[discord-status='idle'] {
+    --primary: #faa61a;
+  }
+  body[discord-status='dnd'] {
+    --primary: #ed4245;
+  }
+  body[discord-status='offline'] {
+    --primary: #747f8d;
+  }
+
+  // Catppuccin color scheme Mocha variation
+  --term-prompt-arrow-color: #a6e3a1; // Green
+  --term-prompt-folder-color: #89dceb; // Sky
+  --term-prompt-git-suffix-color: #74c7ec; // Sapphire
+  --term-prompt-git-content-color: #f38ba8; // Red
+  --term-prompt-x-color: #f9e2af; // Yellow
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: #121212;
+  color: white;
+}
+
+a {
+  text-decoration: underline;
+  text-shadow: var(--primary) 0 0 16px;
+}
+
+hr {
+  margin: 6px 0;
+}
+
+div#app {
+  max-width: 768px;
+  padding: 6px;
+  margin: auto;
+}
+
+nav.navbar > h1 {
+  font-weight: bold;
+
+  a {
+    text-shadow: none;
+  }
+
+  a.folder {
+    color: var(--term-prompt-folder-color);
+  }
+
+  span.git-suffix {
+    color: var(--term-prompt-git-suffix-color);
+
+    a.content {
+      color: var(--term-prompt-git-content-color);
+    }
+  }
+
+  &::before {
+    content: '➜';
+    color: var(--term-prompt-arrow-color);
+  }
+
+  &::after {
+    content: '✗';
+    color: var(--term-prompt-x-color);
+  }
+}
