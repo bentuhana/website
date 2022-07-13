@@ -99,8 +99,13 @@ div.idk-what-to-call-this {
       align-items: center;
 
       img.album-cover {
-        margin: 0 16px 0 0;
-        border-radius: 100%;
+        display: none;
+
+        &[listening] {
+          display: block;
+          margin: 0 16px 0 0;
+          border-radius: 100%;
+        }
       }
 
       p.song-info {

@@ -49,18 +49,17 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 lanyard({
   userId: '990330297377755138',
   presenceUpdate: (data) => {
-    const spotifyDiv = document.querySelector<HTMLDivElement>('div.spotify')!,
-      spotifyAlbumCoverEl = document.querySelector<HTMLImageElement>(
-        'div.spotify > div.info > img'
+    const spotifyAlbumCoverEl = document.querySelector<HTMLImageElement>(
+        'div.spotify > div.info > img.album-cover'
       )!,
-      spotifySongInfo = document.querySelector<HTMLLinkElement>(
+      spotifySongInfo = document.querySelector<HTMLParagraphElement>(
         'div.spotify > div.info > p.song-info'
       )!;
 
     document.body.setAttribute('discord-status', data.discord_status);
 
     if (data.spotify) {
-      spotifyDiv.setAttribute('listening', '');
+      spotifyAlbumCoverEl.setAttribute('listening', '');
       spotifyAlbumCoverEl.src = data.spotify.album_art_url;
       spotifySongInfo.innerHTML = `<a href="https://open.spotify.com/track/${
         data.spotify.track_id
@@ -78,8 +77,7 @@ lanyard({
         data.spotify.album === data.spotify.song ? 'single' : 'album'
       }`;
     } else {
-      spotifyDiv.removeAttribute('listening');
-      spotifyAlbumCoverEl.src = '/spotify-logo.svg';
+      spotifyAlbumCoverEl.removeAttribute('listening');
       spotifySongInfo.innerHTML =
         "oh no, listening to.. nothing?<br />how's that even possible???";
     }
