@@ -2,21 +2,21 @@ lockfileVersion: 5.4
 
 specifiers:
   '@types/node': ^18.0.3
-  '@unocss/reset': ^0.43.2
+  '@unocss/reset': ^0.44.1
   prettier: ^2.7.1
   sass: ^1.53.0
   typescript: ^4.7.4
-  vite: ^2.9.13
+  vite: ^3.0.0
 
 dependencies:
-  '@unocss/reset': 0.43.2
+  '@unocss/reset': 0.44.1
 
 devDependencies:
   '@types/node': 18.0.3
   prettier: 2.7.1
   sass: 1.53.0
   typescript: 4.7.4
-  vite: 2.9.13_sass@1.53.0
+  vite: 3.0.0_sass@1.53.0
 
 packages:
 
@@ -24,8 +24,8 @@ packages:
     resolution: {integrity: sha512-HzNRZtp4eepNitP+BD6k2L6DROIDG4Q0fm4x+dwfsr6LGmROENnok75VGw40628xf+iR24WeMFcHuuBDUAzzsQ==}
     dev: true
 
-  /@unocss/reset/0.43.2:
-    resolution: {integrity: sha512-VFUK1ZFDqJSFjn1Cl2+sP6h06qzVpwLpoJTNfKMY1fFIY/bAg9BKePGucRE4Aasz41yJ+Z674ovJWdLNfnAiNw==}
+  /@unocss/reset/0.44.1:
+    resolution: {integrity: sha512-w0h0tFCGEaE/O5g0HhUl31lEfZFyeGctqLHmx/clXbLwhPBqsw5k9iEs5xlEBUiw3+g7n5JUIr4PDWRzSPMPTQ==}
     dev: false
 
   /anymatch/3.1.2:
@@ -434,20 +434,23 @@ packages:
     hasBin: true
     dev: true
 
-  /vite/2.9.13_sass@1.53.0:
-    resolution: {integrity: sha512-AsOBAaT0AD7Mhe8DuK+/kE4aWYFMx/i0ZNi98hJclxb4e0OhQcZYUrvLjIaQ8e59Ui7txcvKMiJC1yftqpQoDw==}
-    engines: {node: '>=12.2.0'}
+  /vite/3.0.0_sass@1.53.0:
+    resolution: {integrity: sha512-M7phQhY3+fRZa0H+1WzI6N+/onruwPTBTMvaj7TzgZ0v2TE+N2sdLKxJOfOv9CckDWt5C4HmyQP81xB4dwRKzA==}
+    engines: {node: '>=14.18.0'}
     hasBin: true
     peerDependencies:
       less: '*'
       sass: '*'
       stylus: '*'
+      terser: ^5.4.0
     peerDependenciesMeta:
       less:
         optional: true
       sass:
         optional: true
       stylus:
+        optional: true
+      terser:
         optional: true
     dependencies:
       esbuild: 0.14.48
