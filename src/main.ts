@@ -39,7 +39,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div class="spotify">
       <h1>listening to</h1>
       <div class="info">
-        <img class="album-cover" width="64" height="64" />
+        <img class="album-cover" width="48" height="48" />
         <p class="song-info"></p>
       </div>
     </div>
