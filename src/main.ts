@@ -39,7 +39,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div class="spotify">
       <h1>listening to</h1>
       <div class="info">
-        <img class="album-cover" src="/spotify-logo.svg" width="48" height="48" />
+        <img class="album-cover" src="/spotify-logo.svg" width="80" height="80" />
         <p class="song-info">fetching spotify status... ig?</p>
       </div>
     </div>
@@ -64,7 +64,9 @@ lanyard({
       spotifyAlbumCoverEl.src = data.spotify.album_art_url;
       spotifySongInfo.innerHTML = `<a href="https://open.spotify.com/track/${
         data.spotify.track_id
-      }" target="_blank">${data.spotify.song}</a> by <a>${data.spotify.artist
+      }" target="_blank">${
+        data.spotify.song
+      }</a> by<br /><a>${data.spotify.artist
         .split('; ')
         .map(
           (artist) =>
@@ -72,12 +74,14 @@ lanyard({
         )
         .join(', ')}</a> on <a href="https://open.spotify.com/search/${
         data.spotify.album
-      }">${data.spotify.album}</a> album`;
+      }">${data.spotify.album}</a> ${
+        data.spotify.album === data.spotify.song ? 'single' : 'album'
+      }`;
     } else {
       spotifyDiv.removeAttribute('listening');
       spotifyAlbumCoverEl.src = '/spotify-logo.svg';
-      spotifySongInfo.textContent =
-        "oh no, listening to nothing? how's that possible";
+      spotifySongInfo.innerHTML =
+        "oh no, listening to.. nothing?<br />how's that even possible???";
     }
   },
 });
