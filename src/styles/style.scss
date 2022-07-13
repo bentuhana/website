@@ -2,23 +2,23 @@
 
 :root {
   // Default primary color
-  --primary: #5865f2; // Discord's blurple
+  --primary: #5865f2; // Discord's blurple color
   body[discord-status='online'] {
-    --primary: #3ba55c;
+    --primary: #3ba55c; // Discord's online status color
   }
   body[discord-status='idle'] {
-    --primary: #faa61a;
+    --primary: #faa61a; // Discord's idle status color
   }
   body[discord-status='dnd'] {
-    --primary: #ed4245;
+    --primary: #ed4245; // Discord's dnd status color
   }
   body[discord-status='offline'] {
-    --primary: #747f8d;
+    --primary: #747f8d; // Discord's offline status color
   }
 
   // Catppuccin color scheme Mocha variation
   --term-prompt-arrow-color: #a6e3a1; // Green
-  --term-prompt-folder-color: #89dceb; // Sky
+  --term-prompt-folder-text-color: #89dceb; // Sky
   --term-prompt-git-suffix-color: #74c7ec; // Sapphire
   --term-prompt-git-content-color: #f38ba8; // Red
   --term-prompt-x-color: #f9e2af; // Yellow
@@ -35,13 +35,21 @@ a {
   text-shadow: var(--primary) 0 0 16px;
 }
 
+h1 {
+  color: var(--primary);
+  text-shadow: var(--primary) 0 0 16px;
+
+  font-weight: bolder;
+  margin: 0 0 16px 0;
+}
+
 hr {
-  margin: 6px 0;
+  margin: 16px 0;
 }
 
 div#app {
   max-width: 768px;
-  padding: 6px;
+  padding: 16px;
   margin: auto;
 }
 
@@ -52,8 +60,8 @@ nav.navbar > h1 {
     text-shadow: none;
   }
 
-  a.folder {
-    color: var(--term-prompt-folder-color);
+  a.folder-text {
+    color: var(--term-prompt-folder-text-color);
   }
 
   span.git-suffix {
@@ -72,5 +80,31 @@ nav.navbar > h1 {
   &::after {
     content: '✗';
     color: var(--term-prompt-x-color);
+  }
+}
+
+div.idk-what-to-call-this {
+  div.basic-description > p {
+    margin: 0 0 16px 0;
+  }
+
+  div.spotify {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0 4px 0;
+
+    div.info {
+      display: flex;
+      align-items: center;
+
+      img.album-cover {
+        margin: 0 16px 0 0;
+        border-radius: 100%;
+      }
+
+      p.song-info {
+        font-size: large;
+      }
+    }
   }
 }
