@@ -63,15 +63,13 @@ lanyard({
       spotifyAlbumCoverEl.src = data.spotify.album_art_url;
       spotifySongInfo.innerHTML = `<a href="https://open.spotify.com/track/${
         data.spotify.track_id
-      }" target="_blank">${
-        data.spotify.song
-      }</a> by<br /><a>${data.spotify.artist
+      }" target="_blank">${data.spotify.song}</a> by<br />${data.spotify.artist
         .split('; ')
         .map(
           (artist) =>
             `<a href="https://open.spotify.com/search/${artist}" target="_blank">${artist}</a>`
         )
-        .join(', ')}</a> on <a href="https://open.spotify.com/search/${
+        .join(', ')} on <a href="https://open.spotify.com/search/${
         data.spotify.album
       }">${data.spotify.album}</a> ${
         data.spotify.album === data.spotify.song ? 'single' : 'album'
