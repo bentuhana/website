@@ -39,8 +39,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div class="spotify">
       <h1>listening to</h1>
       <div class="info">
-        <img class="album-cover" width="48" height="48" />
-        <p class="song-info"></p>
+        <img class="album-cover" src="/spotify-logo.svg" width="48" height="48" />
+        <p class="song-info">fetching spotify status... ig?</p>
       </div>
     </div>
   </div>
