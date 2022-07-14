@@ -1,9 +1,9 @@
 import { execSync } from 'child_process';
 
 export default {
-  GIT_BRANCH: JSON.stringify(
-    execSync('git rev-parse --abbrev-ref HEAD').toString().trim()
-  ),
+  GIT_BRANCH: process.env.GIT_BRANCH
+    ? JSON.stringify('preview')
+    : JSON.stringify('main'),
   GIT_LAST_COMMIT_HASH: JSON.stringify(
     execSync('git rev-parse HEAD').toString().trim().slice(0, 7)
   ),
