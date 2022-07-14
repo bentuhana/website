@@ -71,7 +71,7 @@ lanyard({
         )
         .join(', ')} on <a href="https://open.spotify.com/search/${
         data.spotify.album
-      }">${data.spotify.album}</a> ${
+      }" target="_blank">${data.spotify.album}</a> ${
         data.spotify.album === data.spotify.song ? 'single' : 'album'
       }`;
     } else {
