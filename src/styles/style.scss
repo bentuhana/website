@@ -85,14 +85,16 @@ nav.navbar > h1 {
 }
 
 div.idk-what-to-call-this {
-  div.basic-description > p {
+  div.basic-description {
     margin: 0 0 16px 0;
   }
 
   div.spotify {
     display: flex;
     flex-direction: column;
+
     padding: 4px 0 4px 0;
+    margin: 0 0 16px 0;
 
     div.info {
       display: flex;

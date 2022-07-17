@@ -40,7 +40,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <h1>listening to</h1>
       <div class="info">
         <img class="album-cover" src="/spotify-logo.svg" width="80" height="80" />
-        <p class="song-info">fetching spotify status... ig?</p>
+        <p class="song-info">fetching spotify status...</p>
       </div>
     </div>
   </div>
@@ -56,28 +56,34 @@ lanyard({
         'div.spotify > div.info > p.song-info'
       )!;
 
+    const discordAvatarEl = document.querySelector<HTMLImageElement>(
+      'div.discord-status > div.info > img.avatar'
+    )!;
+
     document.body.setAttribute('discord-status', data.discord_status);
 
     if (data.spotify) {
       spotifyAlbumCoverEl.setAttribute('listening', '');
       spotifyAlbumCoverEl.src = data.spotify.album_art_url;
-      spotifySongInfo.innerHTML = `<a href="https://open.spotify.com/track/${
+      spotifySongInfo.innerHTML = `<a href="spotify://track/${
         data.spotify.track_id
-      }" target="_blank">${data.spotify.song}</a> by<br />${data.spotify.artist
+      }">${data.spotify.song}</a> by<br />${data.spotify.artist
         .split('; ')
-        .map(
-          (artist) =>
-            `<a href="https://open.spotify.com/search/${artist}" target="_blank">${artist}</a>`
-        )
-        .join(', ')} on <a href="https://open.spotify.com/search/${
-        data.spotify.album
-      }" target="_blank">${data.spotify.album}</a> ${
-        data.spotify.album === data.spotify.song ? 'single' : 'album'
+        .map((artist) => `<a href="spotify://search/${artist}">${artist}</a>`)
+        .join(', ')} on ${
+        data.spotify.song === data.spotify.album
+          ? `<a href="spotify://track/${data.spotify.track_id}">${data.spotify.album}</a> single`
+          : `<a href="spotify://search/${data.spotify.album}">${data.spotify.album}</a> album`
       }`;
     } else {
       spotifyAlbumCoverEl.removeAttribute('listening');
       spotifySongInfo.innerHTML =
         "oh no, listening to.. nothing?<br />how's that even possible???";
+    }
+
+    if (data.discord_status !== 'offline') {
+      discordAvatarEl.src = `https://cdn.discordapp.com/avatars/${data.discord_user.id}/${data.discord_user.avatar}.webp?size=128`;
+    } else {
     }
   },
 });
